@@ -1,0 +1,254 @@
+@import 'resets';
+@import 'geral';
+@import 'variaveis';
+@import 'mixins';
+
+.container {
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	max-width: 1280px;
+}
+
+//Cabeçalho
+.cabecalho {
+	@include flex;
+	align-items: center;
+	justify-content: space-between;	
+
+	&__logo {
+		@include flex;
+		color: $corSuporte;
+		font-size: 1.375em;
+		margin: 0 auto;
+		padding: 20px;
+
+		@media screen and (min-width: $break-medium) {
+			justify-content: left;
+			margin: 0 20px;
+		}
+
+		&:hover {
+			color: rgba(255, 255, 255, 0.5);
+		}
+	}
+}
+
+//main
+.main {	
+	border-radius: $radius;
+	margin: 0 20px;
+	padding: 30px 10px;	
+
+	&__introducao {
+		@include flex;
+
+		@media screen and (min-width: $break-medium) {
+			margin: 0 auto;
+			width: 75%;		
+		}
+	}
+
+	&__resumo {
+		@include flex;
+		border-bottom: 1px solid $corSecundaria;
+		border-top: 1px solid $corSecundaria;			
+		justify-content: center;
+		margin: 30px;
+		padding: 5px;
+			@media screen and (min-width: $break-medium) {
+				margin: 30px auto;
+				width: 35%;				
+		}
+	}
+}
+
+.seta-r {
+
+	&:after {
+		content: "\2192";
+		padding-left: 5px;
+	}
+}
+
+.introducao {
+
+	&__titulo {
+		color: $corSuporte;
+		font-size: 2.25em;			
+		letter-spacing: .1em;
+		margin: 0 auto;
+		text-align: center;	
+
+		&:after {
+			@include pseudo;
+			height: 8px;
+		}
+	}
+
+	&__texto {
+		border-radius: $radius;
+		box-shadow: $shadow;		
+		color: $corSuporte;
+		display: block;
+		margin: 20px 0;		
+		padding: 15px;	
+	}
+}
+
+.main {
+
+	&__redes {
+		@include flex;
+		justify-content: center;
+	}
+}
+
+.resumo {
+
+	&__link {
+		color: $corSuporte;
+		font-size: 1.375em;
+		padding: 3px;		
+
+		&:after {
+			@include pseudoArrow;			
+			border-width: 2px 2px 0 0;
+			height: 8px;
+			left: 210px;
+			position: relative;
+			top: -17px;
+			transform: rotate(45deg);
+			width: 8px;	
+		}
+
+		&:before {
+			@include pseudoArrow;
+			border-width: 1px 1px 0 0;	
+			height: 5px;
+			left: 207px;
+			top: 14px;
+			width: 5px;		
+		}
+
+		&:hover {
+			color: $corSecundaria;
+		}
+	}
+
+}
+
+.main {
+
+	&__redes {
+		margin-top: 30px;
+	}
+}
+
+.redes {
+
+	&__item {		
+		padding: 10px 0;
+	}
+}
+
+.item {
+
+	&__link {
+		color: $corSuporte;		
+		font-size: 1.125em;
+		padding: 10px;
+			@media screen and (min-width: $break-medium) {
+				margin: 0 5px;
+		}
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.8);
+			border-radius: $radius;
+			color: $corPrincipal;
+		}
+	}
+}
+
+//Currículo
+.portfolio {
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: $radius;
+	box-shadow: $shadow;
+	padding: 30px 0;	
+
+	&__trabalhos {
+		@include flex;
+	    margin: 10px;
+	}
+}
+
+.trabalhos {
+
+	&__item {
+		cursor: pointer;
+		flex: 1 2 250px;
+	    margin: 10px;
+	    position: relative;    
+
+		&:hover .item__info {
+			@include flex;
+			background-color: rgba(0, 0, 0, 0.4);
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;			
+			width: 100%;			
+		}
+	}
+}
+
+.item__info {
+    display: none;
+
+	&__text {
+		@include flex;
+		align-items: center;		
+		background: rgba(0, 0, 0, 0.2);
+		color: $corSuporte;
+		font-family: $fontPrincipal;
+		height: 100%;
+		justify-content: center;
+		text-align: center;	    
+	    text-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, .1);	    
+	    transition: $transicao;
+		width: 100%;				
+
+	}
+}
+
+.portfolio {
+
+	&__buttom {
+		@include flex;
+		border: 1px solid rgba(255, 255, 255, .3);
+		border-radius: $radius;
+		justify-content: center;
+		margin: 15px auto;
+		width: 200px;
+
+		&:hover {
+			background-color: rgba(0, 0, 0, .1);
+			border: 1px solid rgba(0, 0, 0, .0);
+		}
+
+		&--active {
+			color: $corSuporte;
+			padding: 10px 25px;	
+		}
+	}
+}
+
+.rodape {
+	border-top: 1px solid rgba(255, 255, 255, .3);
+	color: $corSuporte;
+	font-family: $fontPrincipal;
+	font-size: 1em;
+	padding: 10px;
+	text-align: center;
+}
